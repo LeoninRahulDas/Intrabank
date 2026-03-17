@@ -7,7 +7,7 @@ pipeline {
     }
 
     tools {
-        maven 'Maven3'   // Configure in Jenkins → Global Tool Config
+        maven 'mvn_creatte'   // Configure in Jenkins → Global Tool Config
     }
 
     stages {
