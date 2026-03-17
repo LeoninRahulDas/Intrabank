@@ -1,0 +1,6 @@
+/home/ubuntu/intrabank/user_service/src/main/java/com/bank/userservice/dto/UserRequest.java
+/home/ubuntu/intrabank/user_service/src/main/java/com/bank/userservice/entity/User.java
+/home/ubuntu/intrabank/user_service/src/main/java/com/bank/userservice/UserServiceApplication.java
+/home/ubuntu/intrabank/user_service/src/main/java/com/bank/userservice/service/UserService.java
+/home/ubuntu/intrabank/user_service/src/main/java/com/bank/userservice/repository/UserRepository.java
+/home/ubuntu/intrabank/user_service/src/main/java/com/bank/userservice/controller/UserController.java

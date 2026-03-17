@@ -1,0 +1,6 @@
+com/bank/userservice/entity/User.class
+com/bank/userservice/repository/UserRepository.class
+com/bank/userservice/dto/UserRequest.class
+com/bank/userservice/UserServiceApplication.class
+com/bank/userservice/controller/UserController.class
+com/bank/userservice/service/UserService.class
