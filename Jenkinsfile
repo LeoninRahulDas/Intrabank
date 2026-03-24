@@ -3,11 +3,11 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "leorahuldas/intrabank"
-        DOCKER_TAG = "v1"
+        DOCKER_TAG = "${BUILD_NUMBER}"
     }
 
     tools {
-        maven 'mvn_creatte'   // Configure in Jenkins → Global Tool Config
+        maven 'mvn_creatte'
     }
 
     stages {
@@ -31,6 +31,7 @@ pipeline {
                 dir('user_service') {
                     sh """
                     docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
+                    docker tag $DOCKER_IMAGE:$DOCKER_TAG $DOCKER_IMAGE:latest
                     """
                 }
             }
@@ -43,9 +44,9 @@ pipeline {
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
-                    sh """
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    """
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    '''
                 }
             }
         }
@@ -54,6 +55,7 @@ pipeline {
             steps {
                 sh """
                 docker push $DOCKER_IMAGE:$DOCKER_TAG
+                docker push $DOCKER_IMAGE:latest
                 """
             }
         }
@@ -64,7 +66,7 @@ pipeline {
             echo 'Build & Push Successful!'
         }
         failure {
-            echo ' Build Failed!'
+            echo 'Build Failed!'
         }
     }
 }
